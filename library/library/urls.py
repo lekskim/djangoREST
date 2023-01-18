@@ -20,7 +20,11 @@ from rest_framework.routers import DefaultRouter
 from app.views import AuthorModelViewSet
 
 router = DefaultRouter()
+<<<<<<< HEAD
 router.register("authors", AuthorModelViewSet)
+=======
+router.register("users", AuthorModelViewSet)
+>>>>>>> master
 
 
 urlpatterns = [
