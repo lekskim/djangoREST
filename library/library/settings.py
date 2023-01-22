@@ -38,36 +38,21 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'rest_framework',
-<<<<<<< HEAD
     'corsheaders',
     'app',
-    
-=======
-    'app',
->>>>>>> master
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-<<<<<<< HEAD
     "corsheaders.middleware.CorsMiddleware",
-=======
->>>>>>> master
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-<<<<<<< HEAD
-
 ]
 
-
-=======
-]
-
->>>>>>> master
 ROOT_URLCONF = "library.urls"
 
 TEMPLATES = [
@@ -140,10 +125,14 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-<<<<<<< HEAD
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
-=======
->>>>>>> master
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASS':[
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ]
+}

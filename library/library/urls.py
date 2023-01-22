@@ -17,14 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework.routers import DefaultRouter
-from app.views import AuthorModelViewSet
+from app.views import AuthorModelViewSet, ArticleModelViewSet, BiographyModelViewSet, BookModelViewSet
 
 router = DefaultRouter()
-<<<<<<< HEAD
 router.register("authors", AuthorModelViewSet)
-=======
-router.register("users", AuthorModelViewSet)
->>>>>>> master
+router.register("article", ArticleModelViewSet)
+router.register("biography", BiographyModelViewSet)
+router.register("books", BookModelViewSet)
 
 
 urlpatterns = [
