@@ -8,11 +8,13 @@ from .serializers import AuthorModelSerializer, BookModelSerializer, ArticleMode
 from rest_framework.views import APIView
 
 
+
+
 class AuthorModelViewSet(ModelViewSet):
     queryset = Author.objects.all()
-    permission_classes = ['IsAuthenticated']
+    # permission_classes = ['IsAuthenticated']
     serializer_class = AuthorModelSerializer
-    filterset_fields = ['first_name', 'last_name', 'birthday_year']
+  #  filterset_fields = ['first_name', 'last_name', 'birthday_year']
 
  #  def get_queryset(self):
  #       return Author.objects.filter(first_name__contains='Alex')
