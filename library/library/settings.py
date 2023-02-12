@@ -44,8 +44,10 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework.authtoken',
     'drf_yasg',
+    'graphene_django',
     'app',
 ]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -151,4 +153,8 @@ REST_FRAMEWORK = {
     #'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.QueryParameterVersioning',
     #'DEFAULT_FILTERS_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
+
+GRAPHENE = {
+    'SCHEMA': 'library.schema.schema'
 }
