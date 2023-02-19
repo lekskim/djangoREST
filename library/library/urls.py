@@ -22,6 +22,7 @@ from app.views import AuthorModelViewSet, ArticleModelViewSet, BiographyModelVie
 from rest_framework.authtoken.views import obtain_auth_token
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from graphene_django.views import GraphQLView
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -40,19 +41,20 @@ router.register("authors", AuthorModelViewSet)
 router.register("article", ArticleModelViewSet)
 router.register("biography", BiographyModelViewSet)
 router.register("books", BookModelViewSet)
-router.register("my", MyAPIView, basename='my')
+#router.register("my", MyAPIView, basename='my')
 
 
 urlpatterns = [
-    #path("admin/", admin.site.urls),
-    #path("api/", include(router.urls)),
-    #path("api-token-auth/", obtain_auth_token),
+    path("admin/", admin.site.urls),
+    path("api/", include(router.urls)),
+    path("api-token-auth/", obtain_auth_token),
+    path("graphql/", GraphQLView.as_view(graphiql=True)),
     #path("myapi/", MyAPIView.as_view()),
     #re_path(r'^myapi/(?P<version>\d)/authors/$', MyAPIView.as_view({'get': 'list'})),
     #path("", MyAPIView.as_view({'get': 'list'})),
     #path("api/1/authors", include('app.urls', namespace='1')),
     #path("api/2/authors", include('app.urls', namespace='2')),
-    path("api/authors", MyAPIView.as_view()),
+    #path("api/authors", MyAPIView.as_view()),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
